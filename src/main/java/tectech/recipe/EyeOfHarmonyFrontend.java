@@ -3,6 +3,7 @@ package tectech.recipe;
 import static com.google.common.math.LongMath.pow;
 import static gregtech.api.util.GTUtility.formatNumbers;
 import static java.lang.Math.min;
+import static kekztech.util.Util.toStandardForm;
 import static net.minecraft.util.EnumChatFormatting.BOLD;
 import static net.minecraft.util.EnumChatFormatting.DARK_RED;
 import static net.minecraft.util.EnumChatFormatting.RESET;
@@ -10,6 +11,7 @@ import static net.minecraft.util.StatCollector.translateToLocal;
 import static net.minecraft.util.StatCollector.translateToLocalFormatted;
 import static tectech.util.CommonValues.EOH_TIER_FANCY_NAMES;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -163,7 +165,7 @@ public class EyeOfHarmonyFrontend extends RecipeMapFrontend {
             } else {
                 result.add(
                     GTLanguageManager.addStringLocalization("EOH.Recipe.EU.Out", "EU Output") + ": "
-                        + ReadableNumberConverter.INSTANCE.toWideReadableForm(recipe.getEUOutput())
+                        + toStandardForm(BigInteger.valueOf(recipe.getEUOutput()))
                         + " EU");
             }
 
@@ -175,7 +177,7 @@ public class EyeOfHarmonyFrontend extends RecipeMapFrontend {
             } else {
                 result.add(
                     GTLanguageManager.addStringLocalization("EOH.Recipe.EU.In", "EU Input") + ": "
-                        + ReadableNumberConverter.INSTANCE.toWideReadableForm(recipe.getEUStartCost())
+                        + toStandardForm(BigInteger.valueOf(recipe.getEUStartCost()))
                         + " EU");
             }
 
